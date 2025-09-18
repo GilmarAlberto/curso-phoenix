@@ -9,7 +9,7 @@ Este repositório contém meu plano de estudos e materiais sobre o **Phoenix Fra
 
 ## 🗂 Estrutura do Repositório
 - `PLANO_DE_ESTUDO.md` → Plano de estudos detalhado.
-- `diagrama.jpg` → Mapa visual dos tópicos de estudo.
+- `diagrama.jpeg` → Mapa visual dos tópicos de estudo.
 - Pastas de projetos e exercícios (a serem adicionadas).
 
 ## 🔖 Tópicos do Estudo
