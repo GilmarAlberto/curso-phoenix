@@ -8,9 +8,8 @@ Este repositório contém meu plano de estudos e materiais sobre o **Phoenix Fra
 - Evoluir até a construção de uma aplicação completa.
 
 ## 🗂 Estrutura do Repositório
-- `plano.txt` → Plano de estudos detalhado.
-- `plano.pdf` → Versão em PDF do plano.
-- `diagrama.png` → Mapa visual dos tópicos de estudo.
+- `PLANO_DE_ESTUDO.md` → Plano de estudos detalhado.
+- `diagrama.jpg` → Mapa visual dos tópicos de estudo.
 - Pastas de projetos e exercícios (a serem adicionadas).
 
 ## 🔖 Tópicos do Estudo
