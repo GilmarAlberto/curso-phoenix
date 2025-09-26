@@ -1,0 +1,34 @@
+<Layouts.app flash={@flash}>
+  <.header>
+    Olá, Gil! Aqui estão seus avisos do dia!
+    <:actions>
+      <.button href={~p"/messages/new"}>
+        <.icon name="hero-plus" /> Adicionar Aviso 
+      </.button>
+    </:actions>
+  </.header>
+
+  <.table id="messages" rows={@messages} row_click={&JS.navigate(~p"/messages/#{&1}")}>
+    <:col :let={message} label="Aviso">{message.content}</:col>
+    <:col :let={message} label="Criado em">
+       <%= 
+          "#{message.inserted_at.day |> Integer.to_string() |> String.pad_leading(2, "0")}/" <>
+          "#{message.inserted_at.month |> Integer.to_string() |> String.pad_leading(2, "0")}/" <>
+          "#{message.inserted_at.year} " <>
+          "#{message.inserted_at.hour |> Integer.to_string() |> String.pad_leading(2, "0")}:" <>
+          "#{message.inserted_at.minute |> Integer.to_string() |> String.pad_leading(2, "0")}" 
+       %>
+    </:col>
+    <:action :let={message}>
+      <div class="sr-only">
+        <.link navigate={~p"/messages/#{message}"}>Show</.link>
+      </div>
+      <.link navigate={~p"/messages/#{message}/edit"}>Edit</.link>
+    </:action>
+    <:action :let={message}>
+      <.link href={~p"/messages/#{message}"} method="delete" data-confirm="Are you sure?">
+        Delete
+      </.link>
+    </:action>
+  </.table>
+</Layouts.app>

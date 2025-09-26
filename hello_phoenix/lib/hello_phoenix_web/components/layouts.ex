@@ -55,7 +55,7 @@ defmodule HelloPhoenixWeb.Layouts do
           </li>
           <li>
             <a href="https://hexdocs.pm/phoenix/overview.html" class="btn btn-primary">
-              Get Started <span aria-hidden="true">&rarr;</span>
+              Primeiros Passos <span aria-hidden="true">&rarr;</span>
             </a>
           </li>
         </ul>
