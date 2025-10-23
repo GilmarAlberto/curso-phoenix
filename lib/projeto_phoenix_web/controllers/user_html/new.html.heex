@@ -1,0 +1,15 @@
+<h1>Novo Usuário</h1>
+
+<.simple_form
+  for={@changeset}
+  action={~p"/users"}
+  as={:user}
+>
+  <.input field={@form[:name]} label="Nome" />
+  <.input field={@form[:email]} label="Email" />
+  <.input field={@form[:age]} label="Idade" type="number" />
+  <:actions>
+    <.button>Criar Usuário</.button>
+  </:actions>
+</.simple_form>
+
