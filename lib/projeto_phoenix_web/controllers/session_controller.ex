@@ -5,7 +5,10 @@ defmodule ProjetoPhoenixWeb.SessionController do
   alias ProjetoPhoenix.Accounts
 
   def new(conn, _params) do
-    form = to_form(%{}, as: :session)
+    form =
+      %{"email" => "", "password" => ""}
+      |> to_form(as: :session)
+
     render(conn, :new, form: form)
   end
 
@@ -18,9 +21,13 @@ defmodule ProjetoPhoenixWeb.SessionController do
         |> redirect(to: ~p"/")
 
       :error ->
+        form =
+          %{"email" => "", "password" => ""}
+          |> to_form(as: :session)
+
         conn
         |> put_flash(:error, "Email ou senha inválidos.")
-        |> render("new.html")
+        |> render(:new, form: form)
     end
   end
 
@@ -31,4 +38,3 @@ defmodule ProjetoPhoenixWeb.SessionController do
     |> redirect(to: ~p"/")
   end
 end
-

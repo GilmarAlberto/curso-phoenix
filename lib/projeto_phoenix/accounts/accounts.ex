@@ -20,4 +20,3 @@ defmodule ProjetoPhoenix.Accounts do
     end
   end
 end
-

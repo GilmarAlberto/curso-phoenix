@@ -3,4 +3,3 @@ defmodule ProjetoPhoenixWeb.SessionHTML do
 
   embed_templates "session_html/*"
 end
-

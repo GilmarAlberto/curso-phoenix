@@ -484,12 +484,12 @@ defmodule ProjetoPhoenixWeb.CoreComponents do
 
     ~H"""
     <.form for={@for} as={@as} action={@action}>
-      <%= render_slot(@inner_block) %>
+      {render_slot(@inner_block)}
 
       <%= if @actions != [] do %>
         <div class="form-actions">
           <%= for action <- @actions do %>
-            <%= render_slot(action) %>
+            {render_slot(action)}
           <% end %>
         </div>
       <% end %>

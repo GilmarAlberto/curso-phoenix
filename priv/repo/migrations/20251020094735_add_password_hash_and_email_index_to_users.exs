@@ -8,5 +8,4 @@ defmodule ProjetoPhoenix.Repo.Migrations.AddPasswordHashAndEmailIndexToUsers do
 
     create unique_index(:users, [:email])
   end
-
 end

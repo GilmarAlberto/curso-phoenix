@@ -5,4 +5,3 @@ defmodule ProjetoPhoenixWeb.UserHTML do
 
   embed_templates "user_html/*"
 end
-

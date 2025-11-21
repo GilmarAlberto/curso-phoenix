@@ -1,0 +1,17 @@
+<div class="mx-auto max-w-lg mt-10">
+  <h1 class="text-2xl font-bold mb-6">Novo Item</h1>
+
+  <.simple_form
+    for={@changeset}
+    as={:item}
+    action={~p"/items"}
+  >
+    <.input field={@changeset[:name]} label="Nome" />
+    <.input field={@changeset[:description]} label="Descrição" type="textarea" />
+
+    <:actions>
+      <.button>Salvar</.button>
+    </:actions>
+  </.simple_form>
+</div>
+

@@ -36,4 +36,3 @@ defmodule ProjetoPhoenix.Accounts.User do
     end
   end
 end
-

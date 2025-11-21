@@ -1,6 +1,8 @@
 defmodule ProjetoPhoenixWeb.Router do
   use ProjetoPhoenixWeb, :router
 
+  alias ProjetoPhoenixWeb.RequireAuth
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -10,38 +12,43 @@ defmodule ProjetoPhoenixWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :auth do
+    plug RequireAuth
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
 
+  # -----------------------------
+  # ROTAS PÚBLICAS
+  # -----------------------------
   scope "/", ProjetoPhoenixWeb do
     pipe_through :browser
 
     get "/", PageController, :home
-    get "/users/new", UserController, :new
-    post "/users", UserController, :create
 
+    # Login
     get "/login", SessionController, :new
     post "/login", SessionController, :create
     delete "/logout", SessionController, :delete
-      
+
+    # Items (por enquanto ainda públicos)
+    get "/items", ItemController, :index
+    get "/items/new", ItemController, :new
+    post "/items", ItemController, :create
+    get "/items/:id/edit", ItemController, :edit
+    put "/items/:id", ItemController, :update
+    delete "/items/:id", ItemController, :delete
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", ProjetoPhoenixWeb do
-  #   pipe_through :api
-  # end
+  # -----------------------------
+  # ROTAS PROTEGIDAS (com login)
+  # -----------------------------
+  scope "/", ProjetoPhoenixWeb do
+    pipe_through [:browser, :auth]
 
-  # Enable LiveDashboard and Swoosh mailbox preview in development
-  if Application.compile_env(:projeto_phoenix, :dev_routes) do
-    import Phoenix.LiveDashboard.Router
-
-    scope "/dev" do
-      pipe_through :browser
-
-      live_dashboard "/dashboard", metrics: ProjetoPhoenixWeb.Telemetry
-      forward "/mailbox", Plug.Swoosh.MailboxPreview
-    end
+    get "/dashboard", PageController, :dashboard
   end
 end
 

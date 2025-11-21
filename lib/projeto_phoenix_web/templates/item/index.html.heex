@@ -1,0 +1,30 @@
+<h1 class="text-2xl font-bold mb-4">Lista de Itens</h1>
+
+<p>
+  <a href={~p"/items/new"} class="underline text-blue-600">Criar novo item</a>
+</p>
+
+<table class="mt-4 border border-gray-400 w-full">
+  <thead>
+    <tr class="bg-gray-200">
+      <th class="p-2">ID</th>
+      <th class="p-2">Nome</th>
+      <th class="p-2">Descrição</th>
+      <th class="p-2">Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= for item <- @items do %>
+      <tr class="border-t border-gray-300">
+        <td class="p-2"><%= item.id %></td>
+        <td class="p-2"><%= item.name %></td>
+        <td class="p-2"><%= item.description %></td>
+        <td class="p-2">
+          <a href={~p"/items/#{item.id}/edit"} class="underline text-blue-600">Editar</a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

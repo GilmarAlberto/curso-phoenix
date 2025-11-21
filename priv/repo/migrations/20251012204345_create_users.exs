@@ -11,4 +11,3 @@ defmodule ProjetoPhoenix.Repo.Migrations.CreateUsers do
     end
   end
 end
-

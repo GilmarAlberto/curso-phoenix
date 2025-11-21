@@ -1,7 +1,7 @@
 <h1>Login</h1>
 
 <%= if @conn.assigns[:phoenix_flash]["error"] do %>
-  <p style="color: red;"><%= @conn.assigns[:phoenix_flash]["error"] %></p>
+  <p style="color: red;">{@conn.assigns[:phoenix_flash]["error"]}</p>
 <% end %>
 
 <.form for={@form} action={~p"/login"} method="post">
@@ -16,9 +16,12 @@
   </div>
 
   <div>
-  <button type="submit" style="padding: 6px 12px; background-color: #1976d2; color: white; border: none; border-radius: 4px;">Entrar</button>
+    <button
+      type="submit"
+      style="padding: 6px 12px; background-color: #1976d2; color: white; border: none; border-radius: 4px; cursor: pointer;"
+    >
+      Entrar
+    </button>
 
-  <%#   <button type="submit">Entrar</button> %>
   </div>
 </.form>
-
